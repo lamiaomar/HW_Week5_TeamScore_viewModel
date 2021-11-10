@@ -41,7 +41,7 @@ private lateinit var binding : FragmentScoreBinding
         binding.score.text = getString(R.string.score)
     }
 
-   
+
 
 
 }
