@@ -28,18 +28,18 @@ private lateinit var binding : FragmentScoreBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.addone.setOnClickListener{
-            binding.score.text = viewModel.addOne().toString()
+            binding.score.text = getString(R.string.score,viewModel.addOne())
         }
         binding.subtwo.setOnClickListener{
             if (viewModel.score >= 2) {
-                binding.score.text = viewModel.checkScoreValue().toString()
+                binding.score.text = getString(R.string.score,viewModel.checkScoreValue())
             } else {
                 var toast: Toast = Toast.makeText(this.requireContext(), "Failed Sub", Toast.LENGTH_SHORT)
                 toast.show()
             }
         }
         binding.addFour.setOnClickListener{
-            binding.score.text = viewModel.addFour().toString()
+            binding.score.text =getString(R.string.score,viewModel.addFour())
         }
 
 
