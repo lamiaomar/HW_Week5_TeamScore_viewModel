@@ -1,5 +1,6 @@
 package com.example.hw_week5_teamscore_viewmodel
 
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 
 class scoreViewModel : ViewModel() {
@@ -26,13 +27,17 @@ class scoreViewModel : ViewModel() {
 
     }
 
-     fun checkScoreValue() : Boolean{
-        if (_score <= 2)
-            _score = 2
-         else if ( _score == 0)
-             _score = 0
-        return false
+     fun checkScoreValue() : Int{
+         if (_score <= 2){
+             if (_score==2) _score = 0
+             else if (_score==1) _score = 1
+             else if (_score==1) _score =0
+         }else subTwo()
+
+        return _score
     }
+
+
 
     override fun onCleared() {
         _score = 0

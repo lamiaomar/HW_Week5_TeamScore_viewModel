@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.hw_week5_teamscore_viewmodel.databinding.FragmentScoreBinding
@@ -30,8 +31,12 @@ private lateinit var binding : FragmentScoreBinding
             binding.score.text = viewModel.addOne().toString()
         }
         binding.subtwo.setOnClickListener{
-            viewModel.checkScoreValue()
-            binding.score.text = viewModel.subTwo().toString()
+            if (viewModel.score >= 2) {
+                binding.score.text = viewModel.checkScoreValue().toString()
+            } else {
+                var toast: Toast = Toast.makeText(this.requireContext(), "Failed Sub", Toast.LENGTH_SHORT)
+                toast.show()
+            }
         }
         binding.addFour.setOnClickListener{
             binding.score.text = viewModel.addFour().toString()
